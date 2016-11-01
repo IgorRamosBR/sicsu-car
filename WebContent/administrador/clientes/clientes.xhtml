@@ -41,13 +41,12 @@
 					<p:column>
 						<f:facet name="header">Opções</f:facet>
 						
-						<p:commandLink>
-						 	<h:outputText value="Editar  "  />
-						</p:commandLink>	
+						<p:commandButton value="Editar" icon="fa fa-fw fa-edit" type="button" style="width:40%">
+							<f:setPropertyActionListener value="#{cliente}" target=""></f:setPropertyActionListener>
+						</p:commandButton>	
 						
-						<p:commandLink >
-						 	<h:outputText value="Visualizar  "  />
-						</p:commandLink>
+						<p:commandButton value="Visualizar" icon="fa fa-fw fa-edit" type="button" style="width:55%">
+						</p:commandButton>
 					
 					</p:column>
 				</p:dataTable>
