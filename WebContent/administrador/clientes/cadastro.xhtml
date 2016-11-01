@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:body>
+		<ui:composition template="/templates/_template-main.xhtml">
+			<ui:define name="principal">
+				<h:form>
+				
+				 <p:growl id="growl" sticky="true" showDetail="true"/>
+				 
+					<p:wizard flowListener="#{clienteWizard.onFlowProcess}">
+				        <p:tab id="pessoal" title="Pessoal">
+				            <p:panel header="Informações Pessoais">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Nome: *"  style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.nome}" required="true" label="Nome"/>
+				 
+				                    <h:outputText value="Sobrenome: *" style="color:black" />
+				                    <p:inputText value="#{clienteWizard.cliente.sobrenome}" required="true" label="Sobrenome"/>
+				                    
+				                    <h:outputText value="Idade: *" style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.idade}" required="true" label="Idade"/>
+				                    
+				                    <h:outputText value="Skip to last: " style="color:black" />
+                    				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="endereco" title="Endereço">
+				            <p:panel header="Detalhes do endereço">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Cidade: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.cidade}" />
+				 
+				                    <h:outputText value="Bairro: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.bairro}" />
+				 
+				                    <h:outputText value="Rua: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.rua}" />
+				                    
+				                    <h:outputText value="Logradouro: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.logradouro}" />
+				                    
+				                    <h:outputText value="Skip to last: " style="color:black"/>
+                    				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				        
+				        <p:tab id="contato" title="Contato">
+				            <p:panel header="Informações de Contato">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Telefone: *" style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.telefone}" required="true" label="Telefone"/>
+				 
+				                    <h:outputText value="Email: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.email}"/>
+				                    
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="confirm" title="Confirmação">
+				            <p:panel header="Confirmação">
+				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Nome: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.nome}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Sobrenome: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.sobrenome}" styleClass="outputLabel"/>
+				                        
+				                        <h:outputText value="Idade: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.idade}" styleClass="outputLabel"/>
+				                        
+				                    </h:panelGrid>
+				 
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Cidade: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.cidade}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Bairro: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.bairro}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Rua: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.rua}" styleClass="outputLabel"/>
+				                        
+				                        <h:outputText value="Logradouro: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.logradouro}" styleClass="outputLabel"/>
+				                    </h:panelGrid>
+				                    
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Telefone " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.telefone}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Email: " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.email}" styleClass="outputLabel"/>
+				 
+				                    </h:panelGrid>
+				 
+				                </h:panelGrid>
+				                
+                <p:commandButton value="Submit" actionListener="#{clienteWizard.save}" update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+				</h:form>	
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>
