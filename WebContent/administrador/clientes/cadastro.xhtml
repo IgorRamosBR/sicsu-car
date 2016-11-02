@@ -23,8 +23,8 @@
 				                    <h:outputText value="Sobrenome: *" style="color:black" />
 				                    <p:inputText value="#{clienteWizard.cliente.sobrenome}" required="true" label="Sobrenome"/>
 				                    
-				                    <h:outputText value="Idade: *" style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.idade}" required="true" label="Idade"/>
+				                    <h:outputText value="CPF: *" style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.cpf}" required="true" label="CPF"/>
 				                    
 				                    <h:outputText value="Skip to last: " style="color:black" />
                     				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
@@ -45,8 +45,8 @@
 				                    <h:outputText value="Rua: " style="color:black"/>
 				                    <p:inputText value="#{clienteWizard.cliente.rua}" />
 				                    
-				                    <h:outputText value="Logradouro: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.logradouro}" />
+				                    <h:outputText value="Numero: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.numero}" />
 				                    
 				                    <h:outputText value="Skip to last: " style="color:black"/>
                     				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
@@ -60,6 +60,9 @@
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Telefone: *" style="color:black"/>
 				                    <p:inputText value="#{clienteWizard.cliente.telefone}" required="true" label="Telefone"/>
+				                    
+				                    <h:outputText value="Celular: " style="color:black"/>
+				                    <p:inputText value="#{clienteWizard.cliente.celular}" label="Celular"/>
 				 
 				                    <h:outputText value="Email: " style="color:black"/>
 				                    <p:inputText value="#{clienteWizard.cliente.email}"/>
@@ -79,7 +82,7 @@
 				                        <h:outputText value="#{clienteWizard.cliente.sobrenome}" styleClass="outputLabel"/>
 				                        
 				                        <h:outputText value="Idade: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.idade}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteWizard.cliente.cpf}" styleClass="outputLabel"/>
 				                        
 				                    </h:panelGrid>
 				 
@@ -94,12 +97,15 @@
 				                        <h:outputText value="#{clienteWizard.cliente.rua}" styleClass="outputLabel"/>
 				                        
 				                        <h:outputText value="Logradouro: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.logradouro}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteWizard.cliente.numero}" styleClass="outputLabel"/>
 				                    </h:panelGrid>
 				                    
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Telefone " style="color:black"/>
 				                        <h:outputText value="#{clienteWizard.cliente.telefone}" styleClass="outputLabel"/>
+				                        
+				                        <h:outputText value="Celular " style="color:black"/>
+				                        <h:outputText value="#{clienteWizard.cliente.celular}" styleClass="outputLabel"/>
 				 
 				                        <h:outputText value="Email: " style="color:black"/>
 				                        <h:outputText value="#{clienteWizard.cliente.email}" styleClass="outputLabel"/>

@@ -2,6 +2,8 @@ package org.uezo.model;
 
 import java.io.Serializable;
 
+import org.primefaces.component.calendar.Calendar;
+
 public class Cliente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -13,10 +15,14 @@ public class Cliente implements Serializable {
 	
 	private String sobrenome;
 	
-	private int idade;
+	private String cpf;
+	
+	private Calendar dataDeNascimento;
 	
 	//CONTATO
 	private String telefone;
+	
+	private String celular;
 	
 	private String email;
 	
@@ -28,7 +34,7 @@ public class Cliente implements Serializable {
 	
 	private String rua;
 	
-	private String logradouro;
+	private String numero;
 	
 	
 	
@@ -56,15 +62,25 @@ public class Cliente implements Serializable {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
 	
+	
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Calendar getDataDeNascimento() {
+		return dataDeNascimento;
+	}
+
+	public void setDataDeNascimento(Calendar dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
+	}
+
 	//CONTATO
 	public String getTelefone() {
 		return telefone;
@@ -72,6 +88,15 @@ public class Cliente implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getEmail() {
@@ -107,15 +132,14 @@ public class Cliente implements Serializable {
 		this.rua = rua;
 	}
 
-	public String getLogradouro() {
-		return logradouro;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
-	
-	
+
 	
 
 }

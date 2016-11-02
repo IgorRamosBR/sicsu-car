@@ -31,6 +31,11 @@ public class ClienteWizard  implements Serializable {
 	        FacesMessage msg = new FacesMessage("Cadastrado com Sucesso!", "Bem vindo:" + cliente.getNome());
 	        FacesContext.getCurrentInstance().addMessage(null, msg);
 	    }
+	    
+	    public void saveEdit(){
+	    	FacesMessage msg = new FacesMessage("Atualizado com Sucesso!");
+	        FacesContext.getCurrentInstance().addMessage(null, msg);
+	    }
 	     
 	    public boolean isSkip() {
 	        return skip;
