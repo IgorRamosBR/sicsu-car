@@ -1,4 +1,4 @@
-package org.uezo.model;
+package main.java.org.uezo.model;
 
 import java.io.Serializable;
 

@@ -97,10 +97,11 @@ ul {
   margin: 20px auto 20px auto; 
   width: 100px;
   height: 100px;
+  overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  background: url(https://tribearound.s3.amazonaws.com/static/img/no_user_logo.jpeg) no-repeat;
+  /* background: url(http://www.bigdatamining.com.br/imagem/adriana.jpg) no-repeat;*/
   background-position:50% 50%;
   display: block;
   }
