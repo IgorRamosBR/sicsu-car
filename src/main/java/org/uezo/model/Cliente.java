@@ -1,10 +1,12 @@
-package main.java.org.uezo.model;
+package org.uezo.model;
 
 import java.io.Serializable;
 
 public class Cliente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private int id;
 
 	//PESSOAIS
 	private String nome;
@@ -28,6 +30,16 @@ public class Cliente implements Serializable {
 	
 	private String logradouro;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	//PESSOAIS
 	public String getNome() {
 		return nome;

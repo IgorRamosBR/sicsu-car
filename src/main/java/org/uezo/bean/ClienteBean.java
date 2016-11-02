@@ -1,4 +1,4 @@
-package main.java.org.uezo.bean;
+package org.uezo.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +7,16 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import main.java.org.uezo.model.Cliente;
+import org.uezo.model.Cliente;
 
 @ManagedBean
 @ViewScoped
 public class ClienteBean {
 	
 	private List<Cliente> clientes;
+	private Cliente clienteSelecionado;
+	
+		private int clienteId;
 	 
 	    @PostConstruct
 	    public void init() {
@@ -24,12 +27,35 @@ public class ClienteBean {
 	        
 	    	return clientes;
 	    }
-	    
-	    
-	    public List<Cliente> listaDeClientes(){
+	
+	    public Cliente getClienteSelecionado() {
+			return clienteSelecionado;
+		}
+
+		public void setClienteSelecionado(Cliente clienteSelecionado) {
+			this.clienteSelecionado = clienteSelecionado;
+		}
+
+		public int getClienteId() {
+			return clienteId;
+		}
+
+		public void setClienteId(int clienteId) {
+			this.clienteId = clienteId;
+		}
+		
+		//Improvisado para apresentar telas
+		public void getClienteById(){
+			
+			clienteSelecionado = clientes.get(clienteId - 1);
+			
+		}
+
+		public List<Cliente> listaDeClientes(){
 	    	List<Cliente> lista = new ArrayList<>();
 	    	
 	    	Cliente cliente1 = new Cliente();
+	    		cliente1.setId(1);
 	    		//PESSOAL
 	    		cliente1.setNome("Lucas");
 	    		cliente1.setSobrenome("Garcez");
@@ -45,6 +71,7 @@ public class ClienteBean {
 	    		
 	    	
 	    	Cliente cliente2 = new Cliente();
+	    		cliente2.setId(2);
 		    	//PESSOAL
 	    		cliente2.setNome("Carlos");
 	    		cliente2.setSobrenome("Oliveira");;
