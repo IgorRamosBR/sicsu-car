@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:body>
+		<ui:composition template="/templates/_template.xhtml">
+			<ui:define name="principal">
+				<h:form>
+				
+				 <p:growl id="growl" sticky="true" showDetail="true"/>
+				 
+					<p:wizard flowListener="#{mecanicoWizard.onFlowProcess}">
+				        <p:tab id="pessoal" title="Pessoal">
+				            <p:panel header="Informações Pessoais">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Nome: *"  style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.nome}" required="true" label="Nome"/>
+				 	
+				                    <h:outputText value="Sobrenome: *" style="color:black" />
+				                    <p:inputText value="#{mecanicoWizard.mecanico.sobrenome}" required="true" label="Sobrenome"/>
+				                    
+				                   
+				                    <h:outputText value="CPF: *" style="color:black" />
+				                    <p:inputText value="#{mecanicoWizard.mecanico.cpf}" required="true" label="CPF"/>
+				                    
+				                    <h:outputText value="Especialidade: " style="color:black" />
+				                    <p:inputText value="#{mecanicoWizard.mecanico.especialidade}" required="false" label="Especialidade"/>
+				                    
+				                    <h:outputText value="Skip to last: " style="color:black" />
+                    				<h:selectBooleanCheckbox value="#{mecanicoWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="endereco" title="Endereço">
+				            <p:panel header="Detalhes do endereço">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Cidade: " style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.cidade}" required="true"/>
+				 
+				                    <h:outputText value="Bairro: " style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.bairro}" required="true"/>
+				 
+				                    <h:outputText value="Rua: " style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.rua}" required="true" />
+				                    
+				                    <h:outputText value="Número: " style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.numero}" required="true" />
+				                    
+				                    <h:outputText value="Skip to last: " style="color:black"/>
+                    				<h:selectBooleanCheckbox value="#{mecanicoWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				        
+				        <p:tab id="contato" title="Contato">
+				            <p:panel header="Informações de Contato">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Telefone: *" style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.telefone}" required="true" label="Telefone"/>
+				 
+				                    <h:outputText value="Email: " style="color:black"/>
+				                    <p:inputText value="#{mecanicoWizard.mecanico.email}"/>
+				                    
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="confirm" title="Confirmação">
+				            <p:panel header="Confirmação">
+				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Nome: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.nome}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Sobrenome: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.sobrenome}" styleClass="outputLabel"/>
+				                        
+				                    	<h:outputText value="CPF: *" style="color:black" />
+				                    	<p:inputText value="#{mecanicoWizard.mecanico.cpf}" required="true" label="CPF"/>
+				                    
+				                   		<h:outputText value="Especialidade: *" style="color:black" />
+				                    	<p:inputText value="#{mecanicoWizard.mecanico.especialidade}" required="true" label="Especialidade"/>
+				                    
+				                        
+				                    </h:panelGrid>
+				 
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Cidade: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.cidade}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Bairro: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.bairro}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Rua: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.rua}" styleClass="outputLabel"/>
+				                        
+				                        <h:outputText value="Numero: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.numero}" styleClass="outputLabel"/>
+				                    </h:panelGrid>
+				                    
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Telefone " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.telefone}" styleClass="outputLabel"/>
+				 
+				                        <h:outputText value="Email: " style="color:black"/>
+				                        <h:outputText value="#{mecanicoWizard.mecanico.email}" styleClass="outputLabel"/>
+				 
+				                    </h:panelGrid>
+				 
+				                </h:panelGrid>
+				                
+                <p:commandButton value="Submit" actionListener="#{mecanicoWizard.save}" update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+				</h:form>	
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>
