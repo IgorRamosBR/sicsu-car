@@ -41,12 +41,9 @@
 					<p:column>
 						<f:facet name="header">Opções</f:facet>
 						
-						<p:commandButton value="Editar" icon="fa fa-fw fa-edit" type="button" style="width:40%">
-							<f:setPropertyActionListener value="#{cliente}" target=""></f:setPropertyActionListener>
-						</p:commandButton>	
-						
-						<p:commandButton value="Visualizar" icon="fa fa-fw fa-edit" type="button" style="width:55%">
-						</p:commandButton>
+						<p:button outcome="edicao.xhtml" value="Editar" icon="ui-icon-star">
+						    <f:param name="clienteId" value="#{cliente.id}" />
+						</p:button>			
 					
 					</p:column>
 				</p:dataTable>

@@ -9,6 +9,10 @@
 		<ui:composition template="/templates/_template.xhtml">
 			<ui:define name="principal">
 				<h:form>
+				<f:metadata>
+				    <f:viewParam name="clienteId" value="#{clienteBean.clienteId}" />
+				     <f:viewAction action="#{clienteBean.getClienteById}" />
+				</f:metadata>
 				
 				 <p:growl id="growl" sticky="true" showDetail="true"/>
 				 
@@ -18,13 +22,13 @@
 				                <p:messages />
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Nome: *"  style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.nome}" required="true" label="Nome"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.nome}" required="true" label="Nome"/>
 				 
 				                    <h:outputText value="Sobrenome: *" style="color:black" />
-				                    <p:inputText value="#{clienteWizard.cliente.sobrenome}" required="true" label="Sobrenome"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.sobrenome}" required="true" label="Sobrenome"/>
 				                    
-				                    <h:outputText value="CPF: *" style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.cpf}" required="true" label="CPF"/>
+				                    <h:outputText value="Idade: *" style="color:black"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.idade}" required="true" label="Idade"/>
 				                    
 				                    <h:outputText value="Skip to last: " style="color:black" />
                     				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
@@ -37,16 +41,16 @@
 				                <p:messages />
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Cidade: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.cidade}" />
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.cidade}" />
 				 
 				                    <h:outputText value="Bairro: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.bairro}" />
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.bairro}" />
 				 
 				                    <h:outputText value="Rua: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.rua}" />
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.rua}" />
 				                    
-				                    <h:outputText value="Numero: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.numero}" />
+				                    <h:outputText value="Logradouro: " style="color:black"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.logradouro}" />
 				                    
 				                    <h:outputText value="Skip to last: " style="color:black"/>
                     				<h:selectBooleanCheckbox value="#{clienteWizard.skip}" />
@@ -59,13 +63,10 @@
 				                <p:messages />
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Telefone: *" style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.telefone}" required="true" label="Telefone"/>
-				                    
-				                    <h:outputText value="Celular: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.celular}" label="Celular"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.telefone}" required="true" label="Telefone"/>
 				 
 				                    <h:outputText value="Email: " style="color:black"/>
-				                    <p:inputText value="#{clienteWizard.cliente.email}"/>
+				                    <p:inputText value="#{clienteBean.clienteSelecionado.email}"/>
 				                    
 				                </h:panelGrid>
 				            </p:panel>
@@ -76,45 +77,42 @@
 				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Nome: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.nome}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.nome}" styleClass="outputLabel"/>
 				 
 				                        <h:outputText value="Sobrenome: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.sobrenome}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.sobrenome}" styleClass="outputLabel"/>
 				                        
 				                        <h:outputText value="Idade: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.cpf}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.idade}" styleClass="outputLabel"/>
 				                        
 				                    </h:panelGrid>
 				 
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Cidade: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.cidade}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.cidade}" styleClass="outputLabel"/>
 				 
 				                        <h:outputText value="Bairro: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.bairro}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.bairro}" styleClass="outputLabel"/>
 				 
 				                        <h:outputText value="Rua: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.rua}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.rua}" styleClass="outputLabel"/>
 				                        
 				                        <h:outputText value="Logradouro: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.numero}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.logradouro}" styleClass="outputLabel"/>
 				                    </h:panelGrid>
 				                    
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Telefone " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.telefone}" styleClass="outputLabel"/>
-				                        
-				                        <h:outputText value="Celular " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.celular}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.telefone}" styleClass="outputLabel"/>
 				 
 				                        <h:outputText value="Email: " style="color:black"/>
-				                        <h:outputText value="#{clienteWizard.cliente.email}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{clienteBean.clienteSelecionado.email}" styleClass="outputLabel"/>
 				 
 				                    </h:panelGrid>
 				 
 				                </h:panelGrid>
 				                
-                <p:commandButton value="Submit" actionListener="#{clienteWizard.save}" update="growl" process="@this"/>
+                <p:commandButton value="Salvar" actionListener="#{clienteWizard.saveEdit}" update="growl" process="@this"/>
             </p:panel>
         </p:tab>
     </p:wizard>

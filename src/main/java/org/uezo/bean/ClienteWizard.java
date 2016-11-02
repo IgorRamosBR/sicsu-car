@@ -1,4 +1,4 @@
-package main.java.org.uezo.bean;
+package org.uezo.bean;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.bean.ViewScoped;
 
 import org.primefaces.event.FlowEvent;
-import main.java.org.uezo.model.Cliente;
+import org.uezo.model.Cliente;
 
 @ManagedBean
 @ViewScoped
@@ -29,6 +29,11 @@ public class ClienteWizard  implements Serializable {
 	     
 	    public void save() {        
 	        FacesMessage msg = new FacesMessage("Cadastrado com Sucesso!", "Bem vindo:" + cliente.getNome());
+	        FacesContext.getCurrentInstance().addMessage(null, msg);
+	    }
+	    
+	    public void saveEdit(){
+	    	FacesMessage msg = new FacesMessage("Atualizado com Sucesso!");
 	        FacesContext.getCurrentInstance().addMessage(null, msg);
 	    }
 	     
