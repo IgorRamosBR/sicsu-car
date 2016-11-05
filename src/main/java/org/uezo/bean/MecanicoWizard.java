@@ -1,4 +1,4 @@
-package main.java.org.uezo.bean;
+package org.uezo.bean;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.bean.ViewScoped;
 
 import org.primefaces.event.FlowEvent;
-import main.java.org.uezo.model.Mecanico;
+import org.uezo.model.Mecanico;
 
 @ManagedBean
 @ViewScoped

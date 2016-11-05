@@ -1,4 +1,4 @@
-package main.java.org.uezo.bean;
+package org.uezo.bean;
 
 public class MecanicoBean {
 
