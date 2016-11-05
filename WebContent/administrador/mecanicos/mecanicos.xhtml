@@ -6,54 +6,94 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:body>
-		<ui:composition template="/templates/_template.xhtml">
-			<ui:define name="principal">
+	<ui:composition template="/templates/_template.xhtml">
+		<ui:define name="principal">
 			<p:breadCrumb style="margin-bottom: 20px;">
-	    		<p:menuitem value="Login" url="#" />
-	    		<p:menuitem value="Home" url="/administrador/home.xhtml" />
-	    		<p:menuitem value="Mecanicos" url="#" />
+				<p:menuitem value="Login" url="#" />
+				<p:menuitem value="Home" url="/administrador/home.xhtml" />
+				<p:menuitem value="Mecanicos" url="#" />
 			</p:breadCrumb>
-			
+
 			<h:form>
 				<div class="ui-grid">
 					<div class="ui-grid-col-12">
-						<p:button value="Cadastrar Mecanico" href="cadastro.xhtml" icon="ui-icon-plus" style="margin-bottom:20px"/>
+						<p:button value="Cadastrar Mecanico" href="cadastro.xhtml"
+							icon="ui-icon-plus" style="margin-bottom:20px" />
 					</div>
 				</div>
-				
+				<p:panel id="docentes" style="margin-bottom:20px">
+					<p:outputLabel value="Mecânicos"
+						style="text-align:center; position:relative; left: 50%;" />
+					<div class="ui-fluid">
+						<div class="ui-grid">
+							<div class="ui-grid-col-2">
+								<p:outputLabel value="Mecânico" />
+							</div>
+							<div class="ui-grid-col-5"><p:inputText value="" /></div>
+							<div class="ui-grid-col-5"><p:outputLabel value=""/></div>
+						</div>
+						<div class="ui-grid">
+						<div class="ui-grid-col-12">
+								<p:outputLabel value="." />
+							</div>
+						</div>
+						<div class="ui-grid">
+							<div class="ui-grid-col-3">
+								<p:outputLabel value="" />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:commandButton value="Consultar" update="listaCientes" />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:outputLabel value="  " />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:commandButton value="Listar"
+									update="listaCientes" />
+							</div>
+
+							<div class="ui-grid-col-3">
+								<p:outputLabel value="  " />
+							</div>
+						</div>
+
+					</div>
+				</p:panel>
 				<div class="ui-fluid">
-				<p:dataTable id="listaCientes" value="#{mecanicoBean.mecanicos}" var="mecanico"
-					paginator="true" rows="10">
-					<p:column >
-						<f:facet name="header">Nome</f:facet>
-						 <h:outputText value="#{mecanico.nome}" /> 
-					</p:column>
-					
-					<p:column >
-						<f:facet name="header">Telefone</f:facet>
-						<h:outputText value="#{mecanico.telefone}" />
-					</p:column>
-					
-					<p:column>
-						<f:facet name="header">E-mail</f:facet>
-						<h:outputText value="#{mecanico.email}" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">Opções</f:facet>
-						
-						<p:commandButton value="Editar" icon="fa fa-fw fa-edit" type="button" style="width:40%">
-							<f:setPropertyActionListener value="#{mecanico}" target=""></f:setPropertyActionListener>
-						</p:commandButton>	
-						
-						<p:commandButton value="Visualizar" icon="fa fa-fw fa-edit" type="button" style="width:55%">
-						</p:commandButton>
-					
-					</p:column>
-				</p:dataTable>
+					<p:dataTable id="listaCientes" value="#{mecanicoBean.mecanicos}"
+						var="mecanico" paginator="true" rows="10">
+						<p:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{mecanico.nome}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">Telefone</f:facet>
+							<h:outputText value="#{mecanico.telefone}" />
+						</p:column>
+
+						<p:column>
+							<f:facet name="header">E-mail</f:facet>
+							<h:outputText value="#{mecanico.email}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">Opções</f:facet>
+
+							<p:commandButton value="Editar" icon="fa fa-fw fa-edit"
+								type="button" style="width:40%">
+								<f:setPropertyActionListener value="#{mecanico}" target=""></f:setPropertyActionListener>
+							</p:commandButton>
+
+							<p:commandButton value="Visualizar" icon="fa fa-fw fa-edit"
+								type="button" style="width:55%">
+							</p:commandButton>
+
+						</p:column>
+					</p:dataTable>
 				</div>
 			</h:form>
-				
-			</ui:define>
-		</ui:composition>
+
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
