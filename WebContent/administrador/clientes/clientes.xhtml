@@ -20,7 +20,44 @@
 						<p:button value="Cadastrar Cliente" href="cadastro.xhtml" icon="ui-icon-plus" style="margin-bottom:20px"/>
 					</div>
 				</div>
-				
+				<p:panel id="clientes" style="margin-bottom:20px">
+					<p:outputLabel value="Clientes"
+						style="text-align:center; position:relative; left: 50%;" />
+					<div class="ui-fluid">
+						<div class="ui-grid">
+							<div class="ui-grid-col-2">
+								<p:outputLabel value="Cliente" />
+							</div>
+							<div class="ui-grid-col-5"><p:inputText value="" /></div>
+							<div class="ui-grid-col-5"><p:outputLabel value=""/></div>
+						</div>
+						<div class="ui-grid">
+						<div class="ui-grid-col-12">
+								<p:outputLabel value="." />
+							</div>
+						</div>
+						<div class="ui-grid">
+							<div class="ui-grid-col-3">
+								<p:outputLabel value="" />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:commandButton value="Consultar" update="listaCientes" />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:outputLabel value="  " />
+							</div>
+							<div class="ui-grid-col-2">
+								<p:commandButton value="Listar"
+									update="listaCientes" />
+							</div>
+
+							<div class="ui-grid-col-3">
+								<p:outputLabel value="  " />
+							</div>
+						</div>
+
+					</div>
+				</p:panel>
 				<div class="ui-fluid">
 				<p:dataTable id="listaCientes" value="#{clienteBean.clientes}" var="cliente"
 					paginator="true" rows="10">
