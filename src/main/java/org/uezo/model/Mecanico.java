@@ -39,6 +39,7 @@ public class Mecanico implements Serializable {
 	}
 
 	public void setNome(String nome) {
+		
 		this.nome = nome;
 	}
 
@@ -122,6 +123,24 @@ public class Mecanico implements Serializable {
 		this.numero = numero;
 	}
 	
+	public boolean equals(Object obj) {
+        if(!(obj instanceof Mecanico))
+            return false;
+         
+        Mecanico mecanico= (Mecanico) obj;
+         
+        return (mecanico.getNome() != null && mecanico.getNome().equals(nome));
+    }
+ 
+    public int hashCode() {
+        int hash = 1;
+        if(nome != null)
+            hash = hash * 31 + nome.hashCode();
+         
+ 
+        return hash;
+    }
 	
 	
-	}
+	
+}

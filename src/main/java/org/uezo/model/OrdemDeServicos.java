@@ -15,6 +15,10 @@ public class OrdemDeServicos implements Serializable {
 	
 	private double valorTotal;
 	
+	private String relatoDoCliente;
+	
+	private String observacoes;
+	
 	/*Quando o sistema for implementado esse status 
 	pode virar um enum. Colocado como String para facilitar
 	essa primeira parte de prototipação e apresentação do 
@@ -77,9 +81,6 @@ public class OrdemDeServicos implements Serializable {
 		this.observacoes = observacoes;
 	}
 
-	String relatoDoCliente;
-	
-	String observacoes;
 	
 	
 

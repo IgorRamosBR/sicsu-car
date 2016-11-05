@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:body>
+		<ui:composition template="/templates/_template.xhtml">
+			<ui:define name="principal">
+				<h:form id="form">
+				
+				 <p:growl id="growl" sticky="true" showDetail="true"/>
+				 
+					<p:wizard flowListener="#{ordemDeServicosWizard.onFlowProcess}">
+				        <p:tab id="principal" title="Principal">
+				            <p:panel header="Informações da Ordem de Serviços">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				 					
+				 					<p:outputLabel value="Cliente:" for="cliente" style="color:black"/>
+				 					
+									<p:selectOneMenu id="cliente"
+										>
+										<f:selectItem itemLabel="Lucas Garcez" itemValue="as Garcez"/>
+										<f:selectItem itemLabel="Carlos Oliveira" itemValue="Leeeucas Garez"/>
+										<f:selectItem itemLabel="Bruno da Silva" itemValue="aads Garce"/>
+									</p:selectOneMenu>
+
+									<p:outputLabel value="Veículo:" for="veiculo" style="color:black" />
+									<p:selectOneMenu id="veiculo">
+										<f:selectItem itemLabel="Fox: HQS-7873"/>
+									</p:selectOneMenu>
+									
+									<p:outputLabel value="Relato do CLiente:" style="color:black"/>
+									<p:inputTextarea rows="8" cols="60" counter="display" maxlength="600" counterTemplate="{0} caracteres restantes." autoResize="false" />
+    								<p:outputLabel/>
+    								<h:outputText id="display"  style="color:black"/>
+
+
+									<h:outputText value="Skip to last: " style="color:black" />
+                    				<h:selectBooleanCheckbox value="#{ordemDeServicosWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="equipe" title="Equipe">
+				            <p:panel header="Escolha os membros da equipe">
+				                <p:messages />
+				                <h:panelGrid columns="3" columnClasses="label, value">
+										
+										<h:outputLabel value="Selecionar Mecânicos: " for="mecanico" style="color:black"/>
+										<p:selectOneMenu id="mecanico" value="#{ordemDeServicosBean.mecanico.nome}">
+											<f:selectItem itemLabel="Lucas Garcez" itemValue="Lucas"/>
+											<f:selectItem itemLabel="Carlos Oliveira" itemValue="Carlos"/>
+											<f:selectItem itemLabel="Bruno da Silva" itemValue="Bruno"/>
+										</p:selectOneMenu>
+										
+										<p:outputLabel/>
+										<p:outputLabel/>
+										
+										<p:commandButton id="btn_reset" value="Reset" type="reset" />
+										<p:commandButton id="btn_add" value="Adicionar" update="growl mecanicos equipe @parent" action="#{ordemDeServicosBean.reinit}">
+											<p:collector value="#{ordemDeServicosBean.mecanico}" addTo="#{ordemDeServicosBean.mecanicos}" unique="true" />
+										</p:commandButton>
+								</h:panelGrid>
+								<h:panelGrid columns="2" columnClasses="label, value">
+										
+										<p:outputPanel id ="mecanicos" >
+											<p:dataTable value="#{ordemDeServicosBean.mecanicos}" var="mecanico" id="mecanicosTable">
+									 
+									            <p:column headerText="Mecânico">
+									                <h:outputText value="#{mecanico.nome}" />
+									            </p:column>
+									 
+									            <p:column headerText="Especialidade">
+									                <f:facet name="header">
+									                    <h:outputText value="Especialidade" />
+									                </f:facet>
+									                <h:outputText value="#{mecanico.especialidade}" />
+									            </p:column>
+									 
+									            <!-- <p:column headerText="Opções">
+									                <p:commandLink value="Remover" update=":form:mecanicos" process=":form:mecanicos">
+									                    <p:collector value="#{mecanico}" removeFrom="#{ordemDeServicos.mecanicos}" unique="true"/>
+									                </p:commandLink>
+									            </p:column>
+									 			 -->
+									        </p:dataTable>
+									        
+								        </p:outputPanel>
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				        <p:tab id="confirm" title="Confirmação">
+						    <p:panel header="Confirmação">
+								<h:panelGrid id="confirmacao" columns="2" columnClasses="grid,grid,grid">
+									<h:panelGrid columns="2" columnClasses="label, value">
+								     DADOS DE CONFIRMAÇÃO AQUI            
+							        </h:panelGrid>
+				
+								</h:panelGrid>
+								                
+				                <p:commandButton value="Submit" actionListener="#{ordemDeServicosWizard.save}" update="growl" process="@this"/>
+				            </p:panel>
+       					 </p:tab>
+    </p:wizard>
+				</h:form>	
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>
