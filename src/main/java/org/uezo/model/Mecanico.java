@@ -19,6 +19,8 @@ public class Mecanico implements Serializable {
 	
 	private String especialidade;
 	
+	private int id;
+	
 	//CONTATO
 	private String telefone;
 	
@@ -77,6 +79,15 @@ public class Mecanico implements Serializable {
 
 	public String getTelefone() {
 		return telefone;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public void setTelefone(String telefone) {
