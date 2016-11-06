@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:body>
+		<ui:composition template="/templates/_template.xhtml">
+			<ui:define name="principal">
+				<h:form>
+				
+				 <p:growl id="growl" sticky="true" showDetail="true"/>
+				 
+					<p:wizard flowListener="#{ordemDeServicosWizard.onFlowProcess}">
+				        <p:tab id="servicosTab" title="Servicos">
+				            <p:panel header="Escolhas os Serviços">
+				                <p:messages />
+				                <h:panelGrid columns="3" columnClasses="label, value"  style="margin-top: 20px">
+				                
+				                    <h:outputText value="Serviços:"  style="color:black"/>
+				                    <p:selectOneMenu id="nomeServico" 
+										value="#{servicoBean.servicoId}" style="width:150%">
+										
+										<f:selectItem itemValue="Selecione" noSelectionOption="true"/>
+										<f:selectItems value="#{servicoBean.servicos}" var="servico"
+											itemLabel="#{servico.nome}" itemValue="#{servico.id}"/>
+									
+									</p:selectOneMenu>
+									
+									<p:spacer/>
+									<p:spacer/>
+									
+									<p:commandButton id="btn2_reset" value="Reset" type="reset"/>
+						            <p:commandButton id="btn2_add" value="Add" update="servicosTab growl @parent" action="#{servicoBean.reinit}" style="width:150%" >
+						            	<p:collector value="#{servicoBean.servicoSelecionado}" addTo="#{servicoBean.servicosAdicionados}" unique="true"/>
+						            </p:commandButton>
+				                    
+				                </h:panelGrid>
+				            </p:panel>
+				            
+				            <p:outputPanel id="servicos">
+				            	<p:dataTable value="#{servicoBean.servicosAdicionados}" var="servico">
+				            	
+				            		<p:column headerText="Serviço">
+				            			<h:outputText value="#{servico.nome}"/>
+				            		</p:column>
+				            		
+				            		<p:column headerText="Valor">
+				            			<h:outputText value="#{servico.valor}"/>
+				            		</p:column>
+				            		
+				            		<p:column headerText="Opções">
+				            		</p:column>
+				            		
+				            	</p:dataTable>
+				            </p:outputPanel>
+				        </p:tab>
+				 
+				        <p:tab id="pecasTab" title="Peças">
+				            <p:panel header="Escolhas as Peças">
+				                <p:messages />
+				                <h:panelGrid columns="3" columnClasses="label, value"  style="margin-top: 20px">
+				                
+				                    <h:outputText value="Peças"  style="color:black"/>
+				                    <p:selectOneMenu id="nomePeca" 
+										value="#{servicoBean.servicoId}" style="width:150%">
+										
+										<f:selectItem itemValue="Selecione" noSelectionOption="true"/>
+										<f:selectItems value="#{servicoBean.servicos}" var="servico"
+											itemLabel="#{servico.nome}" itemValue="#{servico.id}"/>
+									
+									</p:selectOneMenu>
+									
+									<p:spacer/>
+									<p:spacer/>
+									
+									<p:commandButton id="btn_reset" value="Reset" type="reset"/>
+						            <p:commandButton id="btn_add" value="Add" update="pecasTab growl @parent" action="#{servicoBean.reinit}" style="width:150%" >
+						            	<p:collector value="#{servicoBean.servicoSelecionado}" addTo="#{servicoBean.servicosAdicionados}" unique="true"/>
+						            </p:commandButton>
+				                    
+				                </h:panelGrid>
+				            </p:panel>
+				            
+				            <p:outputPanel id="pecas">
+				            	<p:dataTable value="#{servicoBean.servicosAdicionados}" var="servico">
+				            	
+				            		<p:column headerText="Serviço">
+				            			<h:outputText value="#{servico.nome}"/>
+				            		</p:column>
+				            		
+				            		<p:column headerText="Valor">
+				            			<h:outputText value="#{servico.valor}"/>
+				            		</p:column>
+				            		
+				            		<p:column headerText="Opções">
+				            		</p:column>
+				            		
+				            	</p:dataTable>
+				            </p:outputPanel>
+				        </p:tab>>
+				        
+				 
+				        <p:tab id="confirm" title="Confirmação">
+				            <p:panel header="Confirmação">
+				                <h:panelGrid id="confirmacao" columns="2" columnClasses="grid,grid,grid">
+				                   
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                    </h:panelGrid>
+				 
+				                </h:panelGrid>
+				                
+                <p:commandButton value="Submit" actionListener="#{ordemDeServicoWizard.save}" update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+				</h:form>	
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>
