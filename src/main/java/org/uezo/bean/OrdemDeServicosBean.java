@@ -1,6 +1,7 @@
 package org.uezo.bean;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -34,15 +35,18 @@ public class OrdemDeServicosBean {
 		OrdemMock ordem3 = new OrdemMock();
 		
 		ordem1.setCliente("Lucas");
+		ordem1.setDataPrevista(Calendar.getInstance());
 		ordem1.setVeiculo("Fox");
 		ordem1.setStatus("Em Avaliação");
 		
 		ordem2.setCliente("Igor");
 		ordem2.setVeiculo("Astra");
+		ordem2.setDataPrevista(Calendar.getInstance());
 		ordem2.setStatus("Em Execução");
 		
 		ordem3.setCliente("Tainara");
 		ordem3.setVeiculo("Corsa");
+		ordem3.setDataPrevista(Calendar.getInstance());
 		ordem3.setStatus("Em Execução");
 		
 		lista.add(ordem1);

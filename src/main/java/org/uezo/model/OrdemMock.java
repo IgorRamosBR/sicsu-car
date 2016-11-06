@@ -1,6 +1,8 @@
 package org.uezo.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /*Classe criada para simular uma Ordem de Servico.
  * Possui apenas os atributos que aparecem na tabela da
@@ -16,6 +18,19 @@ public class OrdemMock implements Serializable {
 	private String veiculo;
 	
 	private String status;
+	
+	private Calendar dataPrevista;
+	
+	
+
+	public String getDataPrevista() {
+		SimpleDateFormat format = new SimpleDateFormat("DD-MMM-yyyy");
+		return format.format(dataPrevista.getTime());
+	}
+
+	public void setDataPrevista(Calendar dataPrevista) {
+		this.dataPrevista = dataPrevista;
+	}
 
 	public String getCliente() {
 		return cliente;

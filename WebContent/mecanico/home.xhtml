@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:body>
+		<ui:composition template="/templates/_template.xhtml">
+			<ui:define name="principal">
+				<p class="cabecalho">
+    				Dashboard
+    			</p>
+	    		<hr style="margin-top:5px;"></hr>
+	    		<ul class="trials">
+				     	
+				     <li><span><a href="#">15 <p>Em Execução</p></a></span></li>
+				     <li><span><a href="#">20 <p>Em Avaliação</p></a></span></li>
+				     <li><span><a href="#">11 <p>Em andamento</p></a></span></li>
+				     <li><span><a href="#">12 <p>Entregue</p></a></span></li>
+				     <li><span><a href="#">7 <p>Cancelado</p></a></span></li>
+					 <li style="border:none;">
+					 	<button type="button" class="btn btn-primary btn-lg">Logout</button> 
+					 </li>
+				</ul>
+				<hr></hr>
+				
+				<p class="titulos">
+    				Minhas Ordens de Serviço
+    			</p>
+	    		<hr style="margin-top:5px;"></hr>
+				<p:dataTable id="listaOrdensDeServicos" value="#{ordemDeServicosBean.ordensDeServicos}" var="ordemDeServicos"
+					paginator="true" rows="10">
+					<p:column filterBy="#{ordemDeServicos.veiculo}" headerText="Veículo" footerText="contains" filterMatchMode="contains">
+						<h:outputText value="#{ordemDeServicos.veiculo}" />
+					</p:column>
+					<p:column filterBy="#{ordemDeServicos.dataPrevista}" headerText="Data Prevista" footerText="contains" filterMatchMode="contains">
+						<h:outputText value="#{ordemDeServicos.dataPrevista}" />
+					</p:column>
+					<p:column filterBy="#{ordemDeServicos.status}" headerText="Status" footerText="exact" filterMatchMode="exact">
+						<!-- <h:outputText value="#{ordemDeServicos.status}" /> -->
+							<f:facet name="filter">
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="Em Avaliação" itemValue="0" />
+								<f:selectItem itemLabel="Em Execução" itemValue="0" />
+								<f:selectItem itemLabel="Concluído" itemValue="1" />
+								<f:selectItem itemLabel="Entregue" itemValue="2" />
+								<f:selectItem itemLabel="Cancelado" itemValue="3" />
+							</p:selectOneMenu>
+							</f:facet>
+							<h:outputText value="#{ordemDeServicos.status}"/>
+						</p:column>
+					 <p:column>
+						<f:facet name="header">Opções</f:facet>
+						
+						<p:button   value="Editar" icon="ui-icon-star" style="width:45%">
+						    <f:param name="ordensDeServicosId" value="#{ordensDeServicos.id}" />
+						</p:button>
+						
+						<p:button   value="Visualizar" icon="ui-icon-star" style="width:45%" >
+						    <f:param name="ordensDeServicosId" value="#{ordensDeServicos.id}" />
+						</p:button>			
+					
+					</p:column> 
+				</p:dataTable>
+				<hr></hr>
+				<div class="row">
+					<div class="col-md-6">
+						<p:chart type="bar" model="#{ordensChart.horizontalBarModel}" style="width:300px;height:200px"/>
+					</div>
+					<div class="col-md-6">
+						<p:chart type="pie" model="#{servicosChart.pieModel1}" style="width:300px;height:200px" />
+					</div>
+				</div>
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>
