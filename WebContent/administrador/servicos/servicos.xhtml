@@ -21,53 +21,15 @@
 							icon="ui-icon-plus" style="margin-bottom:20px" />
 					</div>
 				</div>
-				<p:panel id="docentes" style="margin-bottom:20px">
-					<p:outputLabel value="Serviços"
-						style="text-align:center; position:relative; left: 50%;" />
-					<div class="ui-fluid">
-						<div class="ui-grid">
-							<div class="ui-grid-col-2">
-								<p:outputLabel value="Serviço" />
-							</div>
-							<div class="ui-grid-col-5"><p:inputText value="" /></div>
-							<div class="ui-grid-col-5"><p:outputLabel value=""/></div>
-						</div>
-						<div class="ui-grid">
-						<div class="ui-grid-col-12">
-								<p:outputLabel value="." />
-							</div>
-						</div>
-						<div class="ui-grid">
-							<div class="ui-grid-col-3">
-								<p:outputLabel value="" />
-							</div>
-							<div class="ui-grid-col-2">
-								<p:commandButton value="Consultar" update="listaCientes" />
-							</div>
-							<div class="ui-grid-col-2">
-								<p:outputLabel value="  " />
-							</div>
-							<div class="ui-grid-col-2">
-								<p:commandButton value="Listar"
-									update="listaCientes" />
-							</div>
-
-							<div class="ui-grid-col-3">
-								<p:outputLabel value="  " />
-							</div>
-						</div>
-
-					</div>
-				</p:panel>
+				
 				<div class="ui-fluid">
 					<p:dataTable id="listaCientes" value="#{servicoBean.servicos}"
 						var="servico" paginator="true" rows="10">
-						<p:column>
-							<f:facet name="header">Tipo</f:facet>
+						<p:column filterBy="#{servico.tipo}" headerText="Tipo" footerText="contains" filterMatchMode="contains">
 							<h:outputText value="#{servico.tipo}" />
 						</p:column>
 
-						<p:column>
+						<p:column filterBy="#{servico.valor}" headerText="Valor" footerText="contains" filterMatchMode="contains">
 							<f:facet name="header">Valor</f:facet>
 							<h:outputText value="#{servico.valor}" />
 						</p:column>

@@ -24,30 +24,27 @@
 				<div class="ui-fluid">
 				<p:dataTable id="listaOrdensDeServicos" value="#{ordemDeServicosBean.ordensDeServicos}" var="ordemDeServicos"
 					paginator="true" rows="10">
-					<p:column >
-						<f:facet name="header">Cliente</f:facet>
+					<p:column filterBy="#{ordemDeServicos.cliente}" headerText="Cliente" footerText="contains" filterMatchMode="contains">
 						 <h:outputText value="#{ordemDeServicos.cliente}" /> 
 					</p:column>
 					
-					<p:column >
-						<f:facet name="header">Veículo</f:facet>
+					<p:column filterBy="#{ordemDeServicos.veiculo}" headerText="Veículo" footerText="contains" filterMatchMode="contains">
 						<h:outputText value="#{ordemDeServicos.veiculo}" />
 					</p:column>
 					
-					<p:column>
-						<f:facet name="header">Status</f:facet>
+					<p:column filterBy="#{ordemDeServicos.status}" headerText="Status" footerText="exact" filterMatchMode="exact">
 						<!-- <h:outputText value="#{ordemDeServicos.status}" /> -->
-							<p:inplace id="event" label="#{ordemDeServicos.status}" effectSpeed="fast"
-								event="dblclick">
-								<h:selectOneMenu>
-									<f:selectItem itemLabel="Em Avaliação" itemValue="0" />
-									<f:selectItem itemLabel="Em Execução" itemValue="0" />
-									<f:selectItem itemLabel="Concluído" itemValue="1" />
-									<f:selectItem itemLabel="Entregue" itemValue="2" />
-									<f:selectItem itemLabel="Cancelado" itemValue="3" />
-								</h:selectOneMenu>
-							</p:inplace>
-						</p:column>
+							<f:facet name="filter">
+							<p:selectOneMenu>
+								<f:selectItem itemLabel="Em Avaliação" itemValue="0" />
+								<f:selectItem itemLabel="Em Execução" itemValue="0" />
+								<f:selectItem itemLabel="Concluído" itemValue="1" />
+								<f:selectItem itemLabel="Entregue" itemValue="2" />
+								<f:selectItem itemLabel="Cancelado" itemValue="3" />
+							</p:selectOneMenu>
+							</f:facet>
+							<h:outputText value="#{ordemDeServicos.status}"/>
+					</p:column>
 					<p:column>
 						<f:facet name="header">Opções</f:facet>
 						
