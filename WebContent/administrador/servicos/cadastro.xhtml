@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:body>
+		<ui:composition template="/templates/_template.xhtml">
+			<ui:define name="principal">
+				<h:form>
+				
+				 <p:growl id="growl" sticky="true" showDetail="true"/>
+				 
+					<p:wizard flowListener="#{servicoWizard.onFlowProcess}">
+				        <p:tab id="principal" title="Novo Serviço">
+				            <p:panel header="Novo serviço">
+				                <p:messages />
+				                <h:panelGrid columns="2" columnClasses="label, value">
+				                    <h:outputText value="Nome: *"  style="color:black"/>
+				                    <p:inputText value="#{servicoWizard.servico.tipo}" required="true" label="Nome"/>
+				 	
+				                     <h:outputText value="Valor: " style="color:black" />
+				                    <p:inputText value="#{servicoWizard.servico.valor}" required="false" label="Especialidade"/>
+				                    
+				                    <h:outputText value="Skip to last: " style="color:black" />
+                    				<h:selectBooleanCheckbox value="#{servicoWizard.skip}" />
+				                </h:panelGrid>
+				            </p:panel>
+				        </p:tab>
+				 
+				               <p:tab id="confirm" title="Confirmação">
+				            <p:panel header="Confirmação">
+				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Nome: " style="color:black"/>
+				                        <h:outputText value="#{servicoWizard.servico.tipo}" styleClass="outputLabel"/>
+				 
+				                    	<h:outputText value="Valor: *" style="color:black" />
+				                    	<p:inputText value="#{servicoWizard.servico.valor}" required="true" label="Valor"/>
+				                        
+				                    </h:panelGrid>
+				 
+				                </h:panelGrid>
+				                
+                <p:commandButton value="Submit" actionListener="#{servicoWizard.save}" update="growl" process="@this"/>
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+				</h:form>	
+			</ui:define>
+		</ui:composition>
+</h:body>
+</html>

@@ -19,6 +19,8 @@ public class Mecanico implements Serializable {
 	
 	private String especialidade;
 	
+	private int id;
+	
 	//CONTATO
 	private String telefone;
 	
@@ -39,6 +41,7 @@ public class Mecanico implements Serializable {
 	}
 
 	public void setNome(String nome) {
+		
 		this.nome = nome;
 	}
 
@@ -76,6 +79,15 @@ public class Mecanico implements Serializable {
 
 	public String getTelefone() {
 		return telefone;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public void setTelefone(String telefone) {
@@ -122,6 +134,24 @@ public class Mecanico implements Serializable {
 		this.numero = numero;
 	}
 	
+	public boolean equals(Object obj) {
+        if(!(obj instanceof Mecanico))
+            return false;
+         
+        Mecanico mecanico= (Mecanico) obj;
+         
+        return (mecanico.getNome() != null && mecanico.getNome().equals(nome));
+    }
+ 
+    public int hashCode() {
+        int hash = 1;
+        if(nome != null)
+            hash = hash * 31 + nome.hashCode();
+         
+ 
+        return hash;
+    }
 	
 	
-	}
+	
+}
