@@ -12,19 +12,22 @@
 				
 				 <p:growl id="growl" sticky="true" showDetail="true"/>
 				 
-					<p:wizard flowListener="#{servicoWizard.onFlowProcess}">
-				        <p:tab id="principal" title="Novo Serviço">
-				            <p:panel header="Novo serviço">
+					<p:wizard flowListener="#{pecaWizard.onFlowProcess}">
+				        <p:tab id="principal" title="Cadastro de peças">
+				            <p:panel header="Cadastro de peças">
 				                <p:messages />
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Nome: *"  style="color:black"/>
-				                    <p:inputText value="#{servicoWizard.servico.tipo}" required="true" label="Nome"/>
+				                    <p:inputText value="#{pecaWizard.peca.nome}" required="true" label="Nome"/>
 				 	
 				                     <h:outputText value="Valor: " style="color:black" />
-				                    <p:inputText value="#{servicoWizard.servico.valor}" required="false" label="Valor"/>
+				                    <p:inputText value="#{pecaWizard.peca.valor}" required="false" label="Valor"/>
+				                    
+				                    <h:outputText value="Quantidade: " style="color:black" />
+				                    <p:inputText value="#{pecaWizard.peca.quantidade}" required="false" label="Quantidade"/>
 				                    
 				                    <h:outputText value="Skip to last: " style="color:black" />
-                    				<h:selectBooleanCheckbox value="#{servicoWizard.skip}" />
+                    				<h:selectBooleanCheckbox value="#{pecaWizard.skip}" />
 				                </h:panelGrid>
 				            </p:panel>
 				        </p:tab>
@@ -34,16 +37,20 @@
 				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Nome: " style="color:black"/>
-				                        <h:outputText value="#{servicoWizard.servico.tipo}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{pecaWizard.peca.tipo}" styleClass="outputLabel"/>
 				 
 				                    	<h:outputText value="Valor: *" style="color:black" />
-				                    	<p:inputText value="#{servicoWizard.servico.valor}" required="true" label="Valor"/>
+				                    	<p:inputText value="#{pecaWizard.peca.valor}" required="true" label="Valor"/>
+				                        
+				                        <h:outputText value="Quantidade: " style="color:black" />
+				                   	    <p:inputText value="#{pecaWizard.peca.valor}" required="false" label="Quantidade"/>
+				                    
 				                        
 				                    </h:panelGrid>
 				 
 				                </h:panelGrid>
 				                
-                <p:commandButton value="Submit" actionListener="#{servicoWizard.save}" update="growl" process="@this"/>
+                <p:commandButton value="Submit" actionListener="#{pecaWizard.save}" update="growl" process="@this"/>
             </p:panel>
         </p:tab>
     </p:wizard>
