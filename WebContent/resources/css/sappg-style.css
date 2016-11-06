@@ -16,8 +16,10 @@ body {
 /* MENU LATERAL */
 #sidebar-wrapper {
   margin-top: 0;
-  background-color: #606060;
+  background-color: rgb(42,63,84);
   color: white;
+  height: 100%;
+  position: absolute;
 }
 *:focus {
   outline:none
@@ -44,15 +46,15 @@ ul {
 }
 
 .menu-sanfona > li :hover {
-    background: rgb(55,55,55);
+    background: rgb(35,53,71);
   }
 .menu-sanfona li ul {
-    background:#606060;
+    background:rgb(35,53,71);
     border-top:1px solid #ccc;
     display:none;
 }
 .menu-sanfona li ul li {
-    background: rgb(150,150,150);
+    background: rgb(70,105,140);
 }
 .menu-sanfona ul : hover{
     display: block;
@@ -94,14 +96,24 @@ ul {
 
 /* IMAGEM CIRCULAR */
 .circular {
-  margin: 20px auto 20px auto; 
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   /* background: url(http://www.bigdatamining.com.br/imagem/adriana.jpg) no-repeat;*/
-  background-position:50% 50%;
   display: block;
+  }
+ 
+ .bemvindo {
+    margin: 20px;
+    height: 70px;
+  }
+ .foto-bemvindo {
+  	float: left;
+  }
+ .texto-bemvindo {
+ 	padding-top: 10px;
+  	padding-left: 80px;
   }
