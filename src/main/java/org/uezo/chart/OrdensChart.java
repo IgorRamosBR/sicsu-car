@@ -31,16 +31,16 @@ public class OrdensChart implements Serializable{
         horizontalBarModel = new HorizontalBarChartModel();
  
         ChartSeries ordensDeServico = new ChartSeries();
-        ordensDeServico.setLabel("Ordens de Serviço");
-        ordensDeServico.set("Em execução", 15);
-        ordensDeServico.set("Em avaliação", 20);
+        ordensDeServico.setLabel("Ordens de Serviï¿½o");
+        ordensDeServico.set("Em execuï¿½ï¿½o", 15);
+        ordensDeServico.set("Em avaliaï¿½ï¿½o", 20);
         ordensDeServico.set("Em andamento", 11);
         ordensDeServico.set("Entregue", 12);
         ordensDeServico.set("Cancelado", 7);
  
         horizontalBarModel.addSeries(ordensDeServico);
          
-        horizontalBarModel.setTitle("Ordens de Serviço");
+        horizontalBarModel.setTitle("Ordens de Serviï¿½o");
         horizontalBarModel.setStacked(true);
          
         Axis xAxis = horizontalBarModel.getAxis(AxisType.X);

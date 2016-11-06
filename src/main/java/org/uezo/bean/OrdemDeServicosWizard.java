@@ -29,7 +29,7 @@ public class OrdemDeServicosWizard implements Serializable {
 	}
 
 		public void save() {        
-	        FacesMessage msg = new FacesMessage("Ordem De serviço gerada com Sucesso!", "Cliente:" );
+	        FacesMessage msg = new FacesMessage("Ordem De serviï¿½o gerada com Sucesso!", "Cliente:" );
 	        FacesContext.getCurrentInstance().addMessage(null, msg);
 	    }
 	    

@@ -21,7 +21,7 @@ public class OrdemDeServicos implements Serializable {
 	
 	/*Quando o sistema for implementado esse status 
 	pode virar um enum. Colocado como String para facilitar
-	essa primeira parte de prototipação e apresentação do 
+	essa primeira parte de prototipaï¿½ï¿½o e apresentaï¿½ï¿½o do 
 	trabalho*/
 	private String status;
 	
