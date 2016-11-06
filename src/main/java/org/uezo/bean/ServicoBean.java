@@ -62,7 +62,7 @@ public class ServicoBean {
 	    	
 	    	Servico servico2 = new Servico();
 	    		servico2.setId(2);
-	    		servico2.setTipo("Troca de Óleo");
+	    		servico2.setTipo("Troca de ï¿½leo");
 	    		servico2.setValor(20);
     		
 	    	lista.add(servico1);

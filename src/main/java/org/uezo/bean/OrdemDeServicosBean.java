@@ -49,17 +49,17 @@ public class OrdemDeServicosBean {
 		ordem1.setCliente("Lucas");
 		ordem1.setDataPrevista(Calendar.getInstance());
 		ordem1.setVeiculo("Fox");
-		ordem1.setStatus("Em Avaliação");
+		ordem1.setStatus("Em Avaliaï¿½ï¿½o");
 		
 		ordem2.setCliente("Igor");
 		ordem2.setVeiculo("Astra");
 		ordem2.setDataPrevista(Calendar.getInstance());
-		ordem2.setStatus("Em Execução");
+		ordem2.setStatus("Em Execuï¿½ï¿½o");
 		
 		ordem3.setCliente("Tainara");
 		ordem3.setVeiculo("Corsa");
 		ordem3.setDataPrevista(Calendar.getInstance());
-		ordem3.setStatus("Em Execução");
+		ordem3.setStatus("Em Execuï¿½ï¿½o");
 		
 		lista.add(ordem1);
 		lista.add(ordem2);
@@ -77,7 +77,7 @@ public class OrdemDeServicosBean {
 		
 		System.out.println("CREATE NEW - " + mecanico.getNome());
         if(mecanicos.contains(mecanico)) {
-            FacesMessage msg = new FacesMessage("Duplicado!", "Esse Mecânico já foi adicionado");
+            FacesMessage msg = new FacesMessage("Duplicado!", "Esse Mecï¿½nico jï¿½ foi adicionado");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         } 
         else {

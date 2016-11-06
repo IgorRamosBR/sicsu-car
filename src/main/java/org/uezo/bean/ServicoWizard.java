@@ -28,7 +28,7 @@ public class ServicoWizard  implements Serializable {
 	    }
 	     
 	    public void save() {        
-	        FacesMessage msg = new FacesMessage("Serviço incluído com Sucesso!");
+	        FacesMessage msg = new FacesMessage("Serviï¿½o incluï¿½do com Sucesso!");
 	        FacesContext.getCurrentInstance().addMessage(null, msg);
 	    }
 	    
