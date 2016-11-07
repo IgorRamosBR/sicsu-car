@@ -21,7 +21,7 @@
 							icon="ui-icon-plus" style="margin-bottom:20px" />
 					</div>
 				</div>
-				<p:panel id="docentes" style="margin-bottom:20px">
+				<!-- <p:panel id="docentes" style="margin-bottom:20px">
 					<p:outputLabel value="Peças"
 						style="text-align:center; position:relative; left: 50%;" />
 					<div class="ui-fluid">
@@ -58,22 +58,19 @@
 						</div>
 
 					</div>
-				</p:panel>
+				</p:panel> -->
 				<div class="ui-fluid">
 					<p:dataTable id="listaCientes" value="#{pecaBean.pecas}"
 						var="peca" paginator="true" rows="10">
-						<p:column>
-							<f:facet name="header">Nome</f:facet>
+						<p:column filterBy="#{peca.nome}" headerText="Peça" filterMatchMode="contains">						
 							<h:outputText value="#{peca.nome}" />
 						</p:column>
 
-						<p:column>
-							<f:facet name="header">Valor</f:facet>
+						<p:column filterBy="#{peca.valor}" headerText="Valor" filterMatchMode="contains">
 							<h:outputText value="#{peca.valor}" />
 						</p:column>
 						
-						<p:column>
-							<f:facet name="header">Quantidade</f:facet>
+						<p:column filterBy="#{peca.quantidade}" headerText="Quantidade" filterMatchMode="contains">
 							<h:outputText value="#{peca.quantidade}" />
 						</p:column>
 
