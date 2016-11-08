@@ -24,18 +24,19 @@
 				<div class="ui-fluid">
 				<p:dataTable id="listaOrdensDeServicos" value="#{ordemDeServicosBean.ordensDeServicos}" var="ordemDeServicos"
 					paginator="true" rows="10">
-					<p:column filterBy="#{ordemDeServicos.cliente}" headerText="Cliente" footerText="contains" filterMatchMode="contains">
+					<p:column filterBy="#{ordemDeServicos.cliente}" headerText="Cliente" filterMatchMode="contains">
 						 <h:outputText value="#{ordemDeServicos.cliente}" /> 
 					</p:column>
 					
-					<p:column filterBy="#{ordemDeServicos.veiculo}" headerText="Veículo" footerText="contains" filterMatchMode="contains">
+					<p:column filterBy="#{ordemDeServicos.veiculo}" headerText="Veículo"  filterMatchMode="contains">
 						<h:outputText value="#{ordemDeServicos.veiculo}" />
 					</p:column>
 					
-					<p:column filterBy="#{ordemDeServicos.status}" headerText="Status" footerText="exact" filterMatchMode="exact">
+					<p:column filterBy="#{ordemDeServicos.status}" headerText="Status" filterMatchMode="exact">
 						<!-- <h:outputText value="#{ordemDeServicos.status}" /> -->
 							<f:facet name="filter">
 							<p:selectOneMenu>
+								<f:selectItem itemLabel="" itemValue="0" />
 								<f:selectItem itemLabel="Em Avaliação" itemValue="0" />
 								<f:selectItem itemLabel="Em Execução" itemValue="0" />
 								<f:selectItem itemLabel="Concluído" itemValue="1" />

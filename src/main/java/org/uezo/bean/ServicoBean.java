@@ -66,7 +66,7 @@ public class ServicoBean {
 	    	
 	    	Servico servico2 = new Servico();
 	    		servico2.setId(2);
-	    		servico2.setNome("Troca de Óleo");
+	    		servico2.setNome("Troca de Ã³leo");
 	    		servico2.setValor(20);
     		
 	    	lista.add(servico1);
@@ -74,7 +74,7 @@ public class ServicoBean {
 	    	return lista;
 	    }
 		
-		//Metódos para o componente collector
+		//Metï¿½dos para o componente collector
 		
 		public void createNew() {
 			

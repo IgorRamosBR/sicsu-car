@@ -95,13 +95,20 @@
 				 
 				        <p:tab id="confirm" title="Confirmação">
 						    <p:panel header="Confirmação">
-								<h:panelGrid id="confirmacao" columns="2" columnClasses="grid,grid,grid">
-									<h:panelGrid columns="2" columnClasses="label, value">
-								     DADOS DE CONFIRMAÇÃO AQUI            
-							        </h:panelGrid>
-				
-								</h:panelGrid>
-								                
+								<h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
+				                    <h:panelGrid columns="2" columnClasses="label, value">
+				                        <h:outputText value="Cliente: " style="color:black"/>
+				                        <h:outputText value="Lucas Garcez" styleClass="outputLabel"/>
+				 
+				                    	<h:outputText value="Veículo" style="color:black" />
+				                    	<h:outputText value="Fox: HQS-7873" required="true" label="Valor"/>
+				                        
+				                        <h:outputText value="Relato do Cliente: " style="color:black" />
+				                   	    <h:outputText value="Pneu direito dianteiro furado" required="false" label="Quantidade"/>
+				                    
+				                        
+				                    </h:panelGrid>
+								 </h:panelGrid>              
 				                <p:commandButton value="Submit" actionListener="#{ordemDeServicosWizard.save}" update="growl" process="@this"/>
 				            </p:panel>
        					 </p:tab>

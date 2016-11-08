@@ -6,15 +6,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:body>
-		<ui:composition template="/templates/_template.xhtml">
+		<ui:composition template="/templates/_template-administrador.xhtml">
 			<ui:define name="principal">
 				<h:form>
 				
 				 <p:growl id="growl" sticky="true" showDetail="true"/>
 				 
 					<p:wizard flowListener="#{veiculoWizard.onFlowProcess}">
-				        <p:tab id="principal" title="Cadastro de peças">
-				            <p:panel header="Cadastro de peças">
+				        <p:tab id="principal" title="Cadastro de Veículos">
+				            <p:panel header="Cadastro de Veículos">
 				                <p:messages />
 				                <h:panelGrid columns="2" columnClasses="label, value">
 				                    <h:outputText value="Modelo: *"  style="color:black"/>

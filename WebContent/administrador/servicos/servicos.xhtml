@@ -25,11 +25,11 @@
 				<div class="ui-fluid">
 					<p:dataTable id="listaCientes" value="#{servicoBean.servicos}"
 						var="servico" paginator="true" rows="10">
-						<p:column filterBy="#{servico.tipo}" headerText="Tipo" footerText="contains" filterMatchMode="contains">
-							<h:outputText value="#{servico.tipo}" />
+						<p:column filterBy="#{servico.nome}" headerText="Tipo"  filterMatchMode="contains">
+							<h:outputText value="#{servico.nome}" />
 						</p:column>
 
-						<p:column filterBy="#{servico.valor}" headerText="Valor" footerText="contains" filterMatchMode="contains">
+						<p:column filterBy="#{servico.valor}" headerText="Valor"  filterMatchMode="contains">
 							<f:facet name="header">Valor</f:facet>
 							<h:outputText value="#{servico.valor}" />
 						</p:column>

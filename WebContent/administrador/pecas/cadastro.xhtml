@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:body>
-		<ui:composition template="/templates/_template.xhtml">
+		<ui:composition template="/templates/_template-administrador.xhtml">
 			<ui:define name="principal">
 				<h:form>
 				
@@ -37,13 +37,13 @@
 				                <h:panelGrid id="confirmacao" columns="3" columnClasses="grid,grid,grid">
 				                    <h:panelGrid columns="2" columnClasses="label, value">
 				                        <h:outputText value="Nome: " style="color:black"/>
-				                        <h:outputText value="#{pecaWizard.peca.tipo}" styleClass="outputLabel"/>
+				                        <h:outputText value="#{pecaWizard.peca.nome}" styleClass="outputLabel"/>
 				 
 				                    	<h:outputText value="Valor: *" style="color:black" />
-				                    	<p:inputText value="#{pecaWizard.peca.valor}" required="true" label="Valor"/>
+				                    	<h:outputText value="#{pecaWizard.peca.valor}" required="true" label="Valor"/>
 				                        
 				                        <h:outputText value="Quantidade: " style="color:black" />
-				                   	    <p:inputText value="#{pecaWizard.peca.valor}" required="false" label="Quantidade"/>
+				                   	    <h:outputText value="#{pecaWizard.peca.quantidade}" required="false" label="Quantidade"/>
 				                    
 				                        
 				                    </h:panelGrid>

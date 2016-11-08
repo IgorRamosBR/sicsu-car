@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:body>
-	<ui:composition template="/templates/_template.xhtml">
+	<ui:composition template="/templates/_template-administrador.xhtml">
 		<ui:define name="principal">
 			<p:breadCrumb style="margin-bottom: 20px;">
 				<p:menuitem value="Login" url="#" />
@@ -17,11 +17,11 @@
 			<h:form>
 				<div class="ui-grid">
 					<div class="ui-grid-col-12">
-						<p:button value="Cadastrar Peça" href="cadastro.xhtml"
+						<p:button value="Cadastrar Veículo" href="cadastro.xhtml"
 							icon="ui-icon-plus" style="margin-bottom:20px" />
 					</div>
 				</div>
-				<p:panel id="docentes" style="margin-bottom:20px">
+				<!-- <p:panel id="docentes" style="margin-bottom:20px">
 					<p:outputLabel value="Peças"
 						style="text-align:center; position:relative; left: 50%;" />
 					<div class="ui-fluid">
@@ -58,27 +58,23 @@
 						</div>
 
 					</div>
-				</p:panel>
+				</p:panel> -->
 				<div class="ui-fluid">
 					<p:dataTable id="listaCientes" value="#{veiculoBean.veiculos}"
 						var="veiculo" paginator="true" rows="10">
-						<p:column>
-							<f:facet name="header">Modelo</f:facet>
+						<p:column filterBy="#{veiculo.modelo}" headerText="Modelo"  filterMatchMode="contains">
 							<h:outputText value="#{veiculo.modelo}" />
 						</p:column>
 
-						<p:column>
-							<f:facet name="header">Marca</f:facet>
+						<p:column filterBy="#{peca.marca}" headerText="Marca"  filterMatchMode="contains">	
 							<h:outputText value="#{peca.marca}" />
 						</p:column>
 						
-						<p:column>
-							<f:facet name="header">Ano</f:facet>
+						<p:column filterBy="#{veiculo.ano}" headerText="Ano"  filterMatchMode="contains">
 							<h:outputText value="#{veiculo.ano}" />
 						</p:column>
 						
-						<p:column>
-							<f:facet name="header">Placa</f:facet>
+						<p:column filterBy="#{veiculo.placa}" headerText="Placa"  filterMatchMode="contains">
 							<h:outputText value="#{veiculo.placa}" />
 						</p:column>
 

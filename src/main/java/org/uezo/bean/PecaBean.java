@@ -63,7 +63,7 @@ public class PecaBean {
 	    	
 	    	Peca peca2 = new Peca();
 	    		peca2.setId(2);
-	    		peca2.setNome("Parafuso nº 1");
+	    		peca2.setNome("Parafuso nÂº 1");
 	    		peca2.setValor(10);
 	    		peca2.setQuantidade(50);
 	    		

@@ -57,7 +57,7 @@ public class MecanicoBean {
 	    	Mecanico mecanico1 = new Mecanico();
 	    		mecanico1.setId(1);
 	    		//PESSOAL
-	    		mecanico1.setNome("Jo�o");
+	    		mecanico1.setNome("João");
 	    		mecanico1.setSobrenome("Silva");
 	    		//ENDERECO
 	    		mecanico1.setCidade("Rio de Janeiro");
@@ -72,7 +72,7 @@ public class MecanicoBean {
 	    	Mecanico mecanico2 = new Mecanico();
 	    		mecanico2.setId(2);
 		    	//PESSOAL
-	    		mecanico2.setNome("Andr�");
+	    		mecanico2.setNome("André");
 	    		mecanico2.setSobrenome("Muniz");;
 	    		//ENDERECO
 	    		mecanico2.setCidade("Rio de Janeiro");

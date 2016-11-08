@@ -34,9 +34,9 @@ public class ServicosChart implements Serializable{
         pieModel1.set("Troca de Pneu", 540);
         pieModel1.set("Limpeza de Motor", 325);
         pieModel1.set("Pintura", 702);
-        pieModel1.set("Ret�fica", 421);
+        pieModel1.set("Retífica", 421);
          
-        pieModel1.setTitle("Servi�os");
+        pieModel1.setTitle("Serviços");
         pieModel1.setShowDataLabels(true);
         pieModel1.setLegendPosition("w");
     }
